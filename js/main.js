@@ -11,7 +11,7 @@ switch(true){
     case(agePassenger > 18 && agePassenger < 65):
     finalPrize = PrizeKm * kmTravel;
     parseFloat(finalPrize);
-    alert("Ecco il conto da pagare "+finalPrize.toFixed(2)+"£");
+    document.getElementById("risultatoSomma").innerHTML = "Ecco il conto da pagare "+finalPrize.toFixed(2)+"£";
     console.log("Passeggero Normale")
     break;
 
@@ -20,7 +20,7 @@ switch(true){
     finalPrize = PrizeKm * kmTravel;
     finalPrizeDiscount20 = finalPrize - ((finalPrize * 20) / 100);
     parseFloat(finalPrize);
-    alert("Ecco il conto da pagare "+finalPrizeDiscount20.toFixed(2)+"£");
+    document.getElementById("risultatoSomma").innerHTML = "Ecco il conto da pagare "+finalPrizeDiscount20.toFixed(2)+"£";
     console.log("Passeggero Minorenne")
     break;
 
@@ -29,7 +29,10 @@ switch(true){
     finalPrize = PrizeKm * kmTravel;
     finalPrizeDiscount40 = finalPrize - ((finalPrize * 40) / 100);
     parseFloat(finalPrize);
-    alert("Ecco il conto da pagare "+finalPrizeDiscount40.toFixed(2)+"£");
+    document.getElementById("risultatoSomma").innerHTML = "Ecco il conto da pagare "+finalPrizeDiscount40.toFixed(2)+"£";
     console.log("Passeggero Ansiano")
     break;
+
+    
+
 }
