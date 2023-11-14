@@ -9,39 +9,62 @@ let finalPrize;
 
 let totalprize = 0;
 
-for (let i =0 ; i<persontravel; i++){
+if(isNaN(persontravel) || isNaN(kmTravel)){
+    alert("Non hai inserito un numero");
+}
+else{
 
-    let agePassenger = parseInt(prompt("Inserisci la tua età:"));
+    let sentinel = false;
 
-    switch(true){
+    for (let i =0 ; i<persontravel; i++){
 
-        case(agePassenger > 18 && agePassenger < 65):
-        finalPrize = PrizeKm * kmTravel;
-        parseFloat(finalPrize);
-        totalprize = totalprize + finalPrize;
-        console.log("Passeggero Normale")
-        break;
+        if (sentinel==true)
+        {
+            break;
+        }
+        else
+        {
 
-        case(agePassenger < 18):
-        let finalPrizeDiscount20;
-        finalPrize = PrizeKm * kmTravel;
-        finalPrizeDiscount20 = finalPrize - ((finalPrize * 20) / 100);
-        parseFloat(finalPrize);
-        totalprize = totalprize + finalPrizeDiscount20;
-        console.log("Passeggero Minorenne")
-        break;
+            let agePassenger = parseInt(prompt("Inserisci la tua età:"));
 
-        case(agePassenger > 65):
-        let finalPrizeDiscount40;
-        finalPrize = PrizeKm * kmTravel;
-        finalPrizeDiscount40 = finalPrize - ((finalPrize * 40) / 100);
-        parseFloat(finalPrize);
-        totalprize = totalprize + finalPrizeDiscount40;
-        console.log("Passeggero Ansiano")
-        break;
+            switch(true){
+    
+                case(agePassenger > 18 && agePassenger < 65):
+                finalPrize = PrizeKm * kmTravel;
+                parseFloat(finalPrize);
+                totalprize = totalprize + finalPrize;
+                console.log("Passeggero Normale")
+                break;
+    
+                case(agePassenger < 18):
+                let finalPrizeDiscount20;
+                finalPrize = PrizeKm * kmTravel;
+                finalPrizeDiscount20 = finalPrize - ((finalPrize * 20) / 100);
+                parseFloat(finalPrize);
+                totalprize = totalprize + finalPrizeDiscount20;
+                console.log("Passeggero Minorenne")
+                break;
+    
+                case(agePassenger > 65):
+                let finalPrizeDiscount40;
+                finalPrize = PrizeKm * kmTravel;
+                finalPrizeDiscount40 = finalPrize - ((finalPrize * 40) / 100);
+                parseFloat(finalPrize);
+                totalprize = totalprize + finalPrizeDiscount40;
+                console.log("Passeggero Ansiano")
+                break;
+    
+                case(isNaN(agePassenger)):
+                alert("Non hai inserito un età(Numero)");
+                sentinel = true;
+                console.log("Ha sbagliato a inserire il numero");
+                break;
+    
+            }
+
+        }
 
     }
-
 }
 
 document.getElementById("risultatoSomma").innerHTML = totalprize.toFixed(2)+"$";
